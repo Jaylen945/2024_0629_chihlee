@@ -19,7 +19,7 @@ def created_log_file():
         with open(log_path,mode='w', encoding='utf-8',newline='') as file:
             file.write('時間,濕度,溫度\n')    
     else:
-        print('目錄已經建立')
+        print('已經有log檔')
 
     return log_path
 
