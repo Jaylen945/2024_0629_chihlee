@@ -9,13 +9,21 @@ def user_release():
     now = datetime.now()
     now_str = now.strftime('%Y-%m-%d %H:%M:%S')
     print(now_str)
-    if led.is_lit:
-        message = '燈是開的'
+    if led.is_lit:   #前後用三個單引號用連結長句子
+        message = '''{   
+            "status":true,
+            "date":"2024/08/17 14:22:56",
+            "topic":"501教室/老師桌燈"
+         }'''
         print(message)
         publish.single(topic = '501教室/老師桌燈', payload = message, hostname = '127.0.0.1', qos=2)
         
     else:
-        message = '燈是關的'
+        message = '''{  
+            "status":false,
+            "date":"2024/08/17 14:22:56",
+            "topic":"501教室/老師桌燈"
+         }'''
         print(message)
         publish.single(topic = '501教室/老師桌燈', payload = message, hostname = '127.0.0.1', qos=2)
 
